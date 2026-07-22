@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Westerntel — Den Haag</title>
-  <meta name="description" content="Westerntel — telecom en reparatie van communicatieapparatuur aan de Stationsweg 143 in Den Haag." />
+  <meta name="description" content="Westerntel — geld versturen en ophalen met MoneyGram, Western Union en Ria aan de Stationsweg 143 in Den Haag." />
   <style>
     :root {
       --black: #111111;
@@ -44,6 +44,32 @@
       font-size: 16px;
       letter-spacing: 1px;
     }
+    header .hero-sub {
+      max-width: 540px;
+      margin: 18px auto 0;
+      color: var(--grey-300);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    header .hero-sub strong { color: var(--white); }
+
+    .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
+    .service {
+      border: 1px solid var(--grey-300);
+      border-radius: 10px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .service:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .service .name {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--black);
+    }
+    .service .desc { margin-top: 6px; font-size: 14px; color: var(--grey-500); }
 
     section { padding: 56px 0; border-bottom: 1px solid var(--grey-100); }
     h2 {
@@ -122,11 +148,33 @@
   <header>
     <div class="wrap">
       <div class="logo">Westerntel</div>
-      <div class="tagline">Telecom &amp; Reparatie · Den Haag</div>
+      <div class="tagline">Geld versturen &amp; ophalen · Den Haag</div>
+      <p class="hero-sub">Snel en betrouwbaar geld overmaken en ontvangen met <strong>MoneyGram</strong>, <strong>Western Union</strong> en <strong>Ria</strong>.</p>
     </div>
   </header>
 
   <main class="wrap">
+    <section>
+      <h2>Onze diensten</h2>
+      <div class="services">
+        <div class="service">
+          <div class="name">MoneyGram</div>
+          <div class="desc">Geld versturen &amp; ophalen</div>
+        </div>
+        <div class="service">
+          <div class="name">Western Union</div>
+          <div class="desc">Geld versturen &amp; ophalen</div>
+        </div>
+        <div class="service">
+          <div class="name">Ria</div>
+          <div class="desc">Geld versturen &amp; ophalen</div>
+        </div>
+      </div>
+      <p style="margin-top:20px;color:var(--grey-500);font-size:15px;">
+        Wereldwijd geld overmaken of ontvangen — snel, veilig en persoonlijk geholpen aan de balie.
+      </p>
+    </section>
+
     <section>
       <h2>Contact</h2>
       <div class="cards">
