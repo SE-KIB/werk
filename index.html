@@ -122,8 +122,9 @@
       border-radius: 10px;
     }
     .map:hover iframe { filter: grayscale(0%); }
+    .card-full { grid-column: 1 / -1; }
     .map-mini { margin-top: 12px; }
-    .map-mini iframe { height: 160px; }
+    .map-mini iframe { height: 260px; }
 
     footer {
       background: var(--grey-100);
@@ -172,9 +173,6 @@
           <div class="desc">Geld versturen &amp; ophalen</div>
         </div>
       </div>
-      <p style="margin-top:20px;color:var(--grey-500);font-size:15px;">
-        Wereldwijd geld overmaken of ontvangen — snel, veilig en persoonlijk geholpen aan de balie.
-      </p>
     </section>
 
     <section>
@@ -188,7 +186,7 @@
           <h3>Telefoon</h3>
           <p><a href="tel:+31707520304">070 - 752 03 04</a></p>
         </div>
-        <div class="card">
+        <div class="card card-full">
           <h3>Route</h3>
           <div class="map map-mini">
             <a class="map-link"
@@ -218,20 +216,6 @@
       </table>
     </section>
 
-    <section>
-      <h2>Locatie</h2>
-      <div class="map">
-        <a class="map-link"
-           href="https://maps.google.com/?q=Stationsweg+143,+2515+BM+Den+Haag"
-           target="_blank" rel="noopener"
-           aria-label="Open route naar Stationsweg 143 in Google Maps"></a>
-        <iframe
-          loading="lazy"
-          src="https://www.google.com/maps?q=Stationsweg%20143,%202515%20BM%20Den%20Haag&output=embed"
-          title="Kaart Westerntel Stationsweg 143 Den Haag">
-        </iframe>
-      </div>
-    </section>
   </main>
 
   <footer>
