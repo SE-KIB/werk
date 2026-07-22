@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Westerntel — Den Haag</title>
+  <meta name="description" content="Westerntel — telecom en reparatie van communicatieapparatuur aan de Stationsweg 143 in Den Haag." />
+  <style>
+    :root {
+      --black: #111111;
+      --grey-900: #1c1c1c;
+      --grey-700: #3a3a3a;
+      --grey-500: #6e6e6e;
+      --grey-300: #cfcfcf;
+      --grey-100: #f2f2f2;
+      --white: #ffffff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    header {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 0 64px;
+      text-align: center;
+    }
+    header .logo {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    header .tagline {
+      margin-top: 12px;
+      color: var(--grey-300);
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    section { padding: 56px 0; border-bottom: 1px solid var(--grey-100); }
+    h2 {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--grey-500);
+      margin-bottom: 24px;
+    }
+
+    .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .cards { grid-template-columns: 1fr; } }
+    .card {
+      border: 1px solid var(--grey-300);
+      border-radius: 10px;
+      padding: 24px;
+      background: var(--white);
+    }
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+      color: var(--grey-700);
+    }
+    .card p, .card a { font-size: 18px; color: var(--black); text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+
+    table.hours { width: 100%; border-collapse: collapse; }
+    table.hours td {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--grey-100);
+      font-size: 17px;
+    }
+    table.hours td:last-child { text-align: right; color: var(--grey-700); }
+    table.hours tr:last-child td { border-bottom: none; }
+
+    .map { margin-top: 8px; }
+    .map iframe {
+      width: 100%;
+      height: 320px;
+      border: 1px solid var(--grey-300);
+      border-radius: 10px;
+      filter: grayscale(100%);
+    }
+
+    footer {
+      background: var(--grey-100);
+      color: var(--grey-500);
+      text-align: center;
+      padding: 32px 0;
+      font-size: 14px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 24px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 1px;
+    }
+    .btn:hover { background: var(--grey-700); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="logo">Westerntel</div>
+      <div class="tagline">Telecom &amp; Reparatie · Den Haag</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Contact</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Adres</h3>
+          <p>Stationsweg 143<br />2515 BM Den Haag</p>
+        </div>
+        <div class="card">
+          <h3>Telefoon</h3>
+          <!-- Vervang het nummer hieronder door jouw telefoonnummer -->
+          <p><a href="tel:+31000000000">070 - 000 00 00</a></p>
+        </div>
+        <div class="card">
+          <h3>E-mail</h3>
+          <!-- Vervang door jouw e-mailadres, of verwijder deze kaart -->
+          <p><a href="mailto:info@westerntel.store">info@westerntel.store</a></p>
+        </div>
+        <div class="card">
+          <h3>Route</h3>
+          <p><a class="btn" href="https://maps.google.com/?q=Stationsweg+143,+2515+BM+Den+Haag" target="_blank" rel="noopener">Open in Maps</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Openingstijden</h2>
+      <!-- Pas de tijden hieronder aan naar jouw openingstijden -->
+      <table class="hours">
+        <tr><td>Maandag</td><td>09:00 – 18:00</td></tr>
+        <tr><td>Dinsdag</td><td>09:00 – 18:00</td></tr>
+        <tr><td>Woensdag</td><td>09:00 – 18:00</td></tr>
+        <tr><td>Donderdag</td><td>09:00 – 18:00</td></tr>
+        <tr><td>Vrijdag</td><td>09:00 – 18:00</td></tr>
+        <tr><td>Zaterdag</td><td>10:00 – 17:00</td></tr>
+        <tr><td>Zondag</td><td>Gesloten</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Locatie</h2>
+      <div class="map">
+        <iframe
+          loading="lazy"
+          src="https://www.google.com/maps?q=Stationsweg%20143,%202515%20BM%20Den%20Haag&output=embed"
+          title="Kaart Westerntel Stationsweg 143 Den Haag">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Westerntel · Stationsweg 143, 2515 BM Den Haag
+    </div>
+  </footer>
+</body>
+</html>
