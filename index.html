@@ -57,8 +57,9 @@
     @media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
     .service {
       border: 1px solid var(--grey-300);
+      border-top: 5px solid var(--grey-300);
       border-radius: 10px;
-      padding: 28px 20px;
+      padding: 24px 20px 28px;
       text-align: center;
       transition: transform .15s ease, box-shadow .15s ease;
     }
@@ -69,6 +70,13 @@
       letter-spacing: 1px;
       color: var(--black);
     }
+    /* Merkkleuren als accent */
+    .service.moneygram { border-top-color: #e01a4f; }
+    .service.moneygram .name { color: #e01a4f; }
+    .service.westernunion { border-top-color: #ffdd00; }
+    .service.westernunion .name { color: #111111; }
+    .service.ria { border-top-color: #f5821f; }
+    .service.ria .name { color: #f5821f; }
     .service .desc { margin-top: 6px; font-size: 14px; color: var(--grey-500); }
 
     section { padding: 56px 0; border-bottom: 1px solid var(--grey-100); }
@@ -160,15 +168,15 @@
     <section>
       <h2>Onze diensten</h2>
       <div class="services">
-        <div class="service">
+        <div class="service moneygram">
           <div class="name">MoneyGram</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
         </div>
-        <div class="service">
+        <div class="service westernunion">
           <div class="name">Western Union</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
         </div>
-        <div class="service">
+        <div class="service ria">
           <div class="name">Ria</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
         </div>
