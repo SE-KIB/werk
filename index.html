@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Westerntel — Den Haag</title>
   <meta name="description" content="Westerntel — geld versturen en ophalen met MoneyGram, Western Union en Ria aan de Stationsweg 143 in Den Haag." />
+  <link rel="canonical" href="https://westerntel.store/" />
+  <meta name="theme-color" content="#111111" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="business.business" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:site_name" content="Westerntel" />
+  <meta property="og:title" content="Westerntel — Den Haag" />
+  <meta property="og:description" content="Geld versturen en ophalen met MoneyGram, Western Union en Ria aan de Stationsweg 143 in Den Haag." />
+  <meta property="og:url" content="https://westerntel.store/" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Westerntel — Den Haag" />
+  <meta name="twitter:description" content="Geld versturen en ophalen met MoneyGram, Western Union en Ria aan de Stationsweg 143 in Den Haag." />
+
+  <!-- Favicon (inline, geen externe request) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%23111'/%3E%3Ctext%20x='32'%20y='44'%20font-family='Arial,sans-serif'%20font-size='38'%20font-weight='800'%20fill='%23fff'%20text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E" />
+
+  <!-- Structured data: lokale onderneming -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FinancialService",
+    "name": "Westerntel",
+    "description": "Geld versturen en ophalen met MoneyGram, Western Union en Ria.",
+    "url": "https://westerntel.store/",
+    "telephone": "+31707520304",
+    "image": "https://westerntel.store/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Stationsweg 143",
+      "postalCode": "2515 BM",
+      "addressLocality": "Den Haag",
+      "addressCountry": "NL"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "10:00",
+        "closes": "20:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Sunday",
+        "opens": "11:00",
+        "closes": "18:00"
+      }
+    ]
+  }
+  </script>
   <style>
     :root {
       --black: #111111;
@@ -57,8 +107,9 @@
     @media (max-width: 640px) { .services { grid-template-columns: 1fr; } }
     .service {
       border: 1px solid var(--grey-300);
+      border-top: 5px solid var(--grey-300);
       border-radius: 10px;
-      padding: 28px 20px;
+      padding: 24px 20px 28px;
       text-align: center;
       transition: transform .15s ease, box-shadow .15s ease;
     }
@@ -69,7 +120,32 @@
       letter-spacing: 1px;
       color: var(--black);
     }
+    /* Merkkleuren als accent */
+    .service.moneygram { border-top-color: #e01a4f; }
+    .service.moneygram .name { color: #e01a4f; }
+    .service.westernunion { border-top-color: #ffdd00; }
+    .service.westernunion .name { color: #111111; }
+    .service.ria { border-top-color: #f5821f; }
+    .service.ria .name { color: #f5821f; }
     .service .desc { margin-top: 6px; font-size: 14px; color: var(--grey-500); }
+    .service .cs { margin-top: 16px; }
+    .service .cs .lbl {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--grey-500);
+      margin-bottom: 4px;
+    }
+    .service .cs a {
+      font-size: 15px;
+      color: var(--grey-700);
+      text-decoration: none;
+      border-bottom: 1px solid var(--grey-300);
+      padding-bottom: 1px;
+      white-space: nowrap;
+    }
+    .service .cs a:hover { color: var(--black); border-bottom-color: var(--grey-700); }
 
     section { padding: 56px 0; border-bottom: 1px solid var(--grey-100); }
     h2 {
@@ -133,6 +209,15 @@
       padding: 32px 0;
       font-size: 14px;
     }
+    .viewers {
+      margin-top: 12px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--grey-300);
+      font-variant-numeric: tabular-nums;
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
     .btn {
       display: inline-block;
       margin-top: 8px;
@@ -145,6 +230,33 @@
       letter-spacing: 1px;
     }
     .btn:hover { background: var(--grey-700); }
+    .hero-btn {
+      background: var(--white);
+      color: var(--black);
+      font-weight: 700;
+    }
+    .hero-btn:hover { background: var(--grey-300); }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+    .status .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--grey-300);
+    }
+    .status.open { color: #1a7f37; }
+    .status.open .dot { background: #1a7f37; }
+    .status.closed { color: #cf222e; }
+    .status.closed .dot { background: #cf222e; }
   </style>
 </head>
 <body>
@@ -153,6 +265,7 @@
       <div class="logo">Westerntel</div>
       <div class="tagline">Geld versturen &amp; ophalen · Den Haag</div>
       <p class="hero-sub">Snel en betrouwbaar geld overmaken en ontvangen met <strong>MoneyGram</strong>, <strong>Western Union</strong> en <strong>Ria</strong>.</p>
+      <a class="btn hero-btn" href="tel:+31707520304">Bel direct: 070 - 752 03 04</a>
     </div>
   </header>
 
@@ -160,17 +273,29 @@
     <section>
       <h2>Onze diensten</h2>
       <div class="services">
-        <div class="service">
+        <div class="service moneygram">
           <div class="name">MoneyGram</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="tel:08000205926">0800 - 020 59 26</a>
+          </div>
         </div>
-        <div class="service">
+        <div class="service westernunion">
           <div class="name">Western Union</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="tel:+31207213077">020 - 721 30 77</a>
+          </div>
         </div>
-        <div class="service">
+        <div class="service ria">
           <div class="name">Ria</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="tel:+31202624088">020 - 262 40 88</a>
+          </div>
         </div>
       </div>
     </section>
@@ -204,7 +329,7 @@
     </section>
 
     <section>
-      <h2>Openingstijden</h2>
+      <h2>Openingstijden<span class="status" id="status" hidden><span class="dot"></span><span class="status-txt"></span></span></h2>
       <table class="hours">
         <tr><td>Maandag</td><td>10:00 – 20:00</td></tr>
         <tr><td>Dinsdag</td><td>10:00 – 20:00</td></tr>
@@ -221,7 +346,74 @@
   <footer>
     <div class="wrap">
       Westerntel · Stationsweg 143, 2515 BM Den Haag
+      <div class="viewers" id="viewers" title="Bezoekers · vandaag – deze week – totaal" aria-label="Bezoekers: vandaag, deze week, totaal"></div>
     </div>
   </footer>
+
+  <script>
+    // Open/gesloten-status, afgeleid van de openingstijden (ma–za 10–20, zo 11–18).
+    (function () {
+      var el = document.getElementById('status');
+      if (!el) return;
+      // Bereken op basis van tijd in Nederland, ongeacht de tijdzone van de bezoeker.
+      var parts, hh, mm, dow;
+      try {
+        var fmt = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Europe/Amsterdam', weekday: 'short', hour: '2-digit',
+          minute: '2-digit', hour12: false
+        }).formatToParts(new Date());
+        var map = {};
+        fmt.forEach(function (p) { map[p.type] = p.value; });
+        hh = parseInt(map.hour, 10);
+        mm = parseInt(map.minute, 10);
+        dow = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 0 }[map.weekday];
+      } catch (e) {
+        var d = new Date();
+        hh = d.getHours(); mm = d.getMinutes(); dow = d.getDay();
+      }
+      var mins = hh * 60 + mm;
+      var open = dow === 0 ? 11 * 60 : 10 * 60;
+      var close = dow === 0 ? 18 * 60 : 20 * 60;
+      var isOpen = mins >= open && mins < close;
+      el.className = 'status ' + (isOpen ? 'open' : 'closed');
+      el.querySelector('.status-txt').textContent = isOpen ? 'Nu geopend' : 'Nu gesloten';
+      el.hidden = false;
+    })();
+
+    (function () {
+      var el = document.getElementById('viewers');
+      if (!el || !window.fetch) return;
+      var API = 'https://api.counterapi.dev/v1/westerntel_store/';
+      var d = new Date();
+      function p(n) { return (n < 10 ? '0' : '') + n; }
+      function isoWeek(dt) {
+        var t = new Date(Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate()));
+        var day = t.getUTCDay() || 7;
+        t.setUTCDate(t.getUTCDate() + 4 - day);
+        var yStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+        var wk = Math.ceil((((t - yStart) / 86400000) + 1) / 7);
+        return t.getUTCFullYear() + 'w' + p(wk);
+      }
+      var keys = [
+        'day_' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()),
+        'week_' + isoWeek(d),
+        'total'
+      ];
+      var counted;
+      try { counted = sessionStorage.getItem('wt_counted'); } catch (e) {}
+      var path = counted ? '/' : '/up';
+      Promise.all(keys.map(function (k) {
+        return fetch(API + k + path)
+          .then(function (r) { return r.json(); })
+          .then(function (j) { return (j && typeof j.count === 'number') ? j.count : null; })
+          .catch(function () { return null; });
+      })).then(function (v) {
+        if (v.indexOf(null) !== -1) return; // stay hidden if anything failed
+        try { sessionStorage.setItem('wt_counted', '1'); } catch (e) {}
+        el.textContent = v[0] + ' - ' + v[1] + ' - ' + v[2];
+        el.style.opacity = '1';
+      }).catch(function () {});
+    })();
+  </script>
 </body>
 </html>
