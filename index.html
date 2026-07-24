@@ -78,6 +78,24 @@
     .service.ria { border-top-color: #f5821f; }
     .service.ria .name { color: #f5821f; }
     .service .desc { margin-top: 6px; font-size: 14px; color: var(--grey-500); }
+    .service .cs { margin-top: 16px; }
+    .service .cs .lbl {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--grey-500);
+      margin-bottom: 4px;
+    }
+    .service .cs a {
+      font-size: 15px;
+      color: var(--grey-700);
+      text-decoration: none;
+      border-bottom: 1px solid var(--grey-300);
+      padding-bottom: 1px;
+      white-space: nowrap;
+    }
+    .service .cs a:hover { color: var(--black); border-bottom-color: var(--grey-700); }
 
     section { padding: 56px 0; border-bottom: 1px solid var(--grey-100); }
     h2 {
@@ -141,6 +159,15 @@
       padding: 32px 0;
       font-size: 14px;
     }
+    .viewers {
+      margin-top: 12px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--grey-300);
+      font-variant-numeric: tabular-nums;
+      opacity: 0;
+      transition: opacity .5s ease;
+    }
     .btn {
       display: inline-block;
       margin-top: 8px;
@@ -171,14 +198,26 @@
         <div class="service moneygram">
           <div class="name">MoneyGram</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="https://www.moneygram.com/nl/nl/help-center/contact-us" target="_blank" rel="noopener">Contact &amp; chat</a>
+          </div>
         </div>
         <div class="service westernunion">
           <div class="name">Western Union</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="tel:+31207213077">020 - 721 30 77</a>
+          </div>
         </div>
         <div class="service ria">
           <div class="name">Ria</div>
           <div class="desc">Geld versturen &amp; ophalen</div>
+          <div class="cs">
+            <span class="lbl">Klantenservice</span>
+            <a href="tel:+31202624088">020 - 262 40 88</a>
+          </div>
         </div>
       </div>
     </section>
@@ -229,7 +268,45 @@
   <footer>
     <div class="wrap">
       Westerntel · Stationsweg 143, 2515 BM Den Haag
+      <div class="viewers" id="viewers" title="Bezoekers · vandaag – deze week – totaal" aria-label="Bezoekers: vandaag, deze week, totaal"></div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('viewers');
+      if (!el || !window.fetch) return;
+      var API = 'https://api.counterapi.dev/v1/westerntel_store/';
+      var d = new Date();
+      function p(n) { return (n < 10 ? '0' : '') + n; }
+      function isoWeek(dt) {
+        var t = new Date(Date.UTC(dt.getFullYear(), dt.getMonth(), dt.getDate()));
+        var day = t.getUTCDay() || 7;
+        t.setUTCDate(t.getUTCDate() + 4 - day);
+        var yStart = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+        var wk = Math.ceil((((t - yStart) / 86400000) + 1) / 7);
+        return t.getUTCFullYear() + 'w' + p(wk);
+      }
+      var keys = [
+        'day_' + d.getFullYear() + p(d.getMonth() + 1) + p(d.getDate()),
+        'week_' + isoWeek(d),
+        'total'
+      ];
+      var counted;
+      try { counted = sessionStorage.getItem('wt_counted'); } catch (e) {}
+      var path = counted ? '/' : '/up';
+      Promise.all(keys.map(function (k) {
+        return fetch(API + k + path)
+          .then(function (r) { return r.json(); })
+          .then(function (j) { return (j && typeof j.count === 'number') ? j.count : null; })
+          .catch(function () { return null; });
+      })).then(function (v) {
+        if (v.indexOf(null) !== -1) return; // stay hidden if anything failed
+        try { sessionStorage.setItem('wt_counted', '1'); } catch (e) {}
+        el.textContent = v[0] + ' - ' + v[1] + ' - ' + v[2];
+        el.style.opacity = '1';
+      }).catch(function () {});
+    })();
+  </script>
 </body>
 </html>
